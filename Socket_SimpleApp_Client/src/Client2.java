@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class Client2 extends javax.swing.JFrame {
 
-    private static String serverName = "localhost";
+    private static String serverName = "192.168.2.1";
     private static int serverPort = 8081;
     private static Socket socket = null;
     private static ObjectOutputStream objectOutputStream = null;
@@ -69,7 +69,6 @@ public class Client2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButtonClose = new javax.swing.JButton();
         jTextFieldJumlah = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,13 +85,6 @@ public class Client2 extends javax.swing.JFrame {
         jTextFieldJumlah.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jTextFieldJumlah.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,9 +98,7 @@ public class Client2 extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(jTextFieldJumlah))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(109, 109, 109)
                         .addComponent(jButtonClose)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
@@ -119,15 +109,9 @@ public class Client2 extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(29, 29, 29)
                 .addComponent(jTextFieldJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 18, Short.MAX_VALUE)
-                        .addComponent(jButtonClose)
-                        .addGap(21, 21, 21))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addContainerGap())))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jButtonClose)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -137,19 +121,6 @@ public class Client2 extends javax.swing.JFrame {
         disconnect();
         this.dispose();
     }//GEN-LAST:event_jButtonCloseActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            // send action message
-            objectOutputStream.writeUTF("getJumlah");
-            objectOutputStream.flush();
-            // get jumlah
-            String jumlahMahasiswa = objectInputStream.readUTF();
-            jTextFieldJumlah.setText(jumlahMahasiswa);
-        } catch (IOException ex) {
-            System.out.println("Error : " + ex.getMessage());
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -185,7 +156,6 @@ public class Client2 extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonClose;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextFieldJumlah;
